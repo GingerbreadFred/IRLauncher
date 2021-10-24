@@ -28,8 +28,21 @@ namespace IRLauncher
                     continue;
                 }
 
+                SectionData sectionData = srcData.Sections.GetSectionData(keyEntry.key.section);
+                if (sectionData == null)
+                {
+                    srcData.Sections.AddSection(keyEntry.key.section);
+                    sectionData = srcData.Sections.GetSectionData(keyEntry.key.section);
+                }
 
-                srcData.Sections[keyEntry.key.section][keyEntry.key.value] = keyEntry.value;
+                KeyData keyData = srcData.Sections[keyEntry.key.section].GetKeyData(keyEntry.key.value);
+                if (keyData == null)
+                {
+                    srcData.Sections[keyEntry.key.section][keyEntry.key.value] = keyEntry.value;
+                    keyData = srcData.Sections[keyEntry.key.section].GetKeyData(keyEntry.key.value);
+                }
+
+                keyData.Value = keyEntry.value;
             }
             
             srcParser.WriteFile(GetIRacingConfigFile(), srcData);
@@ -52,12 +65,10 @@ namespace IRLauncher
 
             foreach (var key in config.KeysToSave)
             {
-                if (!srcData.Sections.ContainsSection(key.section) || !srcData.Sections[key.section].ContainsKey(key.value))
+                if (srcData.Sections.ContainsSection(key.section) && srcData.Sections[key.section].ContainsKey(key.value))
                 {
-                    throw new InvalidDataException(String.Format("iRacing app.ini does not contain data for {0}:{1}", key.section, key.value));
+                    car.Keys.Add(new Config.IniValue(new Config.IniKey(key.section, key.value), srcData.Sections[key.section][key.value]));
                 }
-
-                car.Keys.Add(new Config.IniValue(new Config.IniKey(key.section, key.value), srcData.Sections[key.section][key.value]));
             }
 
             ConfigIO.WriteToDisk(config);
