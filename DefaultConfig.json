@@ -1,0 +1,101 @@
+﻿{
+  "KeysToSave": [
+    {
+      "section": "UIOffsetPos",
+      "value": "Fulldrv_SysInfo_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "Fulldrv_SysInfo_Y"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "Fulldrv_TextChat_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "Fulldrv_TextChat_Y"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "Fulldrv_VirtualMirror_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "Fulldrv_VirtualMirror_Y"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRIVE_CONTROLS_SPEEDGEAR_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRIVE_CONTROLS_SPEEDGEAR_Y"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_BLACKBOXES_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_BLACKBOXES_Y"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_DELTABAR_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_DELTABAR_Y"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_GRP_RADIO_TUNED_TO_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_GRP_RADIO_TUNED_TO_Y"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_INFO_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_INFO_Y"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_PITINFO_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_PITINFO_Y"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_SESSION_TIMER_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_SESSION_TIMER_Y"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_SPLITS_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_SPLITS_Y"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_VCHAT_LARGE_X"
+    },
+    {
+      "section": "UIOffsetPos",
+      "value": "IDC_FULLDRV_VCHAT_LARGE_Y"
+    }
+  ],
+  "Cars": []
+}
