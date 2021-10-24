@@ -1,0 +1,109 @@
+﻿<mah:MetroWindow x:Class="IRLauncher.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                 xmlns:local="clr-namespace:IRLauncher"
+                 Dialog:DialogParticipation.Register="{Binding}"
+                 mc:Ignorable="d"
+                 Title="iRacing Launcher"
+                 Height="auto"
+                 Width="600"
+                 ResizeMode="NoResize"
+                 SizeToContent="WidthAndHeight"
+                 ShowSystemMenuOnRightClick="False">
+    <mah:MetroWindow.Resources>
+        <local:BoolToParamConverter x:Key="BoolToParamConverter" />
+        <x:Array Type="sys:String"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                 x:Key="RunningStringArray">
+            <sys:String>Not Running</sys:String>
+            <sys:String>Running</sys:String>
+        </x:Array>
+        <x:Array Type="swm:SolidColorBrush"
+                 xmlns:swm="clr-namespace:System.Windows.Media;assembly=PresentationCore"
+                 x:Key="RunningColorArray">
+            <SolidColorBrush Color="Red" />
+            <SolidColorBrush Color="Green" />
+        </x:Array>
+    </mah:MetroWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <GroupBox Header="Car"
+                  Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70*" />
+                    <ColumnDefinition Width="15*" />
+                    <ColumnDefinition Width="15*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <ComboBox ItemsSource="{Binding Path=Cars}"
+                          SelectedItem="{Binding Path=SelectedCar, Mode=TwoWay}"
+                          Grid.Column="0"
+                          Grid.Row="0"
+                          HorizontalAlignment="Stretch" />
+                <Button Content="Create"
+                        Command="{Binding Path=NewCarCommand}"
+                        Grid.Column="1"
+                        Grid.Row="0" />
+                <Button Content="Delete"
+                        Command="{Binding Path=DeleteCarCommand}"
+                        Grid.Column="2"
+                        Grid.Row="0" />
+                <CheckBox Content="Copy From iRacing On Shutdown"
+                          FlowDirection="RightToLeft"
+                          Grid.Row="1"
+                          Grid.Column="0"
+                          HorizontalAlignment="Left"
+                          Padding="5, 5, 0, 0">
+                    <CheckBox.Resources>
+                        <Style TargetType="{x:Type Path}">
+                            <Setter Property="FlowDirection"
+                                    Value="LeftToRight" />
+                        </Style>
+                    </CheckBox.Resources>
+                </CheckBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="App"
+                  Grid.Row="1">
+            <StackPanel>
+                <Button Content="Launch UI" Command="{Binding LaunchUICommand}" />
+                <StackPanel Orientation="Horizontal">
+                    <Label Padding="5, 5, 0, 5"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           Content="UI: " />
+                    <Label Padding="5, 5, 0, 5"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           Content="{Binding Path=UIRunning, Converter={StaticResource BoolToParamConverter}, ConverterParameter={StaticResource RunningStringArray}}"
+                           Foreground="{Binding Path=UIRunning, Converter={StaticResource BoolToParamConverter}, ConverterParameter={StaticResource RunningColorArray}}">
+                    </Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Padding="5, 5, 0, 5"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           Content="Sim: " />
+                    <Label Padding="5, 5, 0, 5"
+                           Grid.Column="0"
+                           Grid.Row="1"
+                           Content="{Binding Path=SimRunning, Converter={StaticResource BoolToParamConverter}, ConverterParameter={StaticResource RunningStringArray}}"
+                           Foreground="{Binding Path=SimRunning, Converter={StaticResource BoolToParamConverter}, ConverterParameter={StaticResource RunningColorArray}}">
+                    </Label>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</mah:MetroWindow>
