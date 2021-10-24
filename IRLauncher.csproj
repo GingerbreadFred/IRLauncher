@@ -6,6 +6,7 @@
     <UseWPF>true</UseWPF>
     <Authors>Richard Watson</Authors>
     <Company>GingerbreadFred</Company>
+    <ApplicationIcon>speedo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
